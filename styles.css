@@ -1,0 +1,182 @@
+body {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+/* Floating Hearts Animation */
+.heart {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: floatHearts 6s linear infinite;
+}
+
+/* Create the heart shape using pseudo-elements */
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0) scale(1) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(0.6) rotate(-45deg); opacity: 0; }
+}
+
+/* Love Letter (Envelope) Design */
+.envelope {
+    position: relative;
+    width: 680px;
+    height: 380px;
+    background: linear-gradient(to bottom, #ff5757, #ff8585);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Envelope Hover Effect */
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+/* Letter Inside Envelope */
+.letter {
+    position: absolute;
+    width: 440px;
+    height: 180px;
+    background: white;
+    top: 30px;
+    text-align: center;
+    padding: 60px;
+    transform: translateY(100%);
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Open Envelope Effect */
+.envelope.open .letter {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Message Text */
+.message {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    color: #d6336c;
+}
+
+/* Heart Decoration on Letter */
+.letter::before {
+    content: "💌";
+    font-size: 40px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    animation: pulse 1s infinite alternate;
+}
+
+/* Heart Beat Animation */
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.2); }
+}
+
+/* Button Design */
+button {
+    background: linear-gradient(to right, #ff4081, #ff80ab);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: linear-gradient(to right, #ff80ab, #ff4081);
+    transform: scale(1.1);
+}
+
+/* Button Animation on Click */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Video Modal (Hidden by Default) */
+#videoModal {
+    display: none;  /* Hide initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+/* Video Styling */
+#videoPlayer {
+    width: 700px;
+    height: 900px;
+    border-radius: 10px;
+}
+
+/* Close Button */
+#closeVideo {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#closeVideo:hover {
+    background: darkred;
+}
