@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-hearts"></div> <!-- Floating hearts container -->
+
+    <div class="envelope" onclick="openLetter()">
+        <div class="letter">
+            <p class="message">Parthesh will you be </p>
+            <p class="message">MY VALENTINE? 💖</p>
+            <div class="buttons">
+                <button id="yesBtn" onclick="showVideo()">Yes! 💕</button>
+                <button id="noBtn" onclick="handleNo()">No 😢</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Video Modal (Initially Hidden) -->
+<div id="videoModal">
+    <video id="videoPlayer" controls>
+        <source src="" type="video/mp4">
+    </video>
+    <button id="closeVideo" onclick="closeVideo()">Close</button>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
